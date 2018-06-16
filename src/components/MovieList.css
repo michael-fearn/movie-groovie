@@ -1,0 +1,9 @@
+.movie_list_element {
+    margin:  10px;
+    background: tan;
+    border: 2px solid Gray;
+    
+}
+.voteholder {
+    display: inline-block;
+}

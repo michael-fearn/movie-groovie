@@ -1,0 +1,12 @@
+.detailsbar {
+    width: 400px;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+.detailed_window {
+    width: 400px;
+    border: 1px solid black;
+}
