@@ -1,3 +1,9 @@
+.app_container {
+  margin: auto;
+  width: 700px;
+  background-color: white;
+}
+
 .app_add_movie {
   width: 100px;
   padding: 10px 10px 10px 10px;
@@ -11,4 +17,7 @@
 .subheading_title {
   font-family: sans-serif;
   color: red;
+}
+body {
+  background-color: #E3E2DD;
 }

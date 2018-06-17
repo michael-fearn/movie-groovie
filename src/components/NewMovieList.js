@@ -7,7 +7,7 @@ export default function NewMovieList (props) {
         props.newMovieWindowHandler()
     }
      
-    let results = props.searchResults.slice(0,5).map( (el, i) => {
+    let results = props.searchResults.slice(0,props.numberOfResults).map( (el, i) => {
         return (
             <div 
             key={el.id}

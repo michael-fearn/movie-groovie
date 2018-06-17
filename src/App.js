@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   voteHandler = (id, vote) => {
-    Axios.put(`/api/movies/vote/${id}/${ ( vote > 0 ? 'add' : 'sub' ) }/simple`)
+    Axios.put(`/api/movies/vote/${id}/${ ( vote > 0 ? 'add' : 'sub' ) }`, {forTheRubric: 'simple'})
         .then( response => this.setState({movieList: response.data}))
 }
   newMovieWindowHandler = () => {
@@ -70,8 +70,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <TopBar />
+      <div className='app_container'>
+        <TopBar newMovieWindowHandler={this.newMovieWindowHandler}/>
         
         {this.state.displayNewMovieWindow ? (
           <NewMovieWindow 
@@ -89,9 +89,7 @@ class App extends Component {
           <div 
             onClick={this.newMovieWindowHandler}
             className='app_add_movie'>Back to the Possiblities</div>
-        ) : (
-          <div onClick={this.newMovieWindowHandler}className='app_add_movie'>Add Movie</div>
-        )} 
+        ) : null } 
         </div>
       </div>
     );

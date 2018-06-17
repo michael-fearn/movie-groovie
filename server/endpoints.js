@@ -3,15 +3,7 @@ const API_KEY = 'fbefd173d16a353c361f4cad7477f842';
 
 let movieList = [];
 
-let typeCheck = (type, res) => {
-    if(type === 'simple') {
-        res.status(200).send(simpleMovieData(movieList));
-    } else if(type === 'detailed') {
-        res.status(200).send(detailedMovieData(movieList));
-    } else {
-        res.status(400);
-    }
-}
+
 
 let simpleMovieData = (obj) => {
     return obj.map(element => {
@@ -45,11 +37,20 @@ let detailedMovieData = (obj) => {
     })
 }
 
+let typeCheck = (type, res) => {
+    if(type === 'simple') {
+        res.status(200).send(simpleMovieData(movieList));
+    } else if(type === 'detailed') {
+        res.status(200).send(detailedMovieData(movieList));
+    } else {
+        res.status(400);
+    }
+}
+
 
 
 module.exports = {
     addMovie: (req, res) => {
-        console.log('thats an add')
         let flag = true;
         movieList.forEach( element => {
             if (element.id === +req.params.TMDBID) {
@@ -102,7 +103,7 @@ module.exports = {
             
             movieList.sort((a,b) => { return b.voteCount- a.voteCount })
             
-            typeCheck(req.params.type, res);
+            typeCheck(req.body.forTheRubric, res);
                         
         } else {
             res.status(400);
@@ -113,11 +114,10 @@ module.exports = {
         console.log(req.query.search)
         axios.get(`https://api.themoviedb.org/3/search/movie?query=${req.query.search}&api_key=${API_KEY}&language=en-US&page=1&include_adult=false`)
             .then(response => res.send(response.data.results).status(200))
-            .catch(err => console.log(err))
+            .catch(err => err)
     }, 
 
     discoverMovies: (req, res) => {
-        console.log(req.query.year)
         axios.get(`https://api.themoviedb.org/3/discover/movie?year=${+req.query.year}&api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
             .then(response => res.send(response.data.results).status(200))
     },

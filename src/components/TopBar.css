@@ -1,0 +1,17 @@
+.title_bar {
+    color: #CECECE;
+    background-color: #191919;
+    padding: 30px;
+    font-size: 20px;
+    box-shadow: 0px 3px 3px rgb(148, 148, 148);
+}
+.title_bar_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title_bar_add_button {
+    
+    padding: 10px;
+    border: 1px solid rgb(148, 148, 148)
+}

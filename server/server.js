@@ -10,7 +10,7 @@ app.post('/api/movies/add/:TMDBID/:type', ep.addMovie);
 app.get('/api/movies/:type', ep.getCurrentList);
 app.get('/api/movies', ep.searchMovies);
 app.get('/api/discover', ep.discoverMovies);
-app.put('/api/movies/vote/:id/:vote/:type', ep.voteHandler);
+app.put('/api/movies/vote/:id/:vote', ep.voteHandler);
 app.delete('/api/movies/delete/:id', ep.removeMovie);
 
 
