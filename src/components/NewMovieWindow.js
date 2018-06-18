@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import NewMovieList from './NewMovieList';
+import './NewMovieWindow.css';
 
 class NewMovieWindow extends Component {
     constructor(props) {
@@ -42,19 +43,22 @@ class NewMovieWindow extends Component {
 
      render() {
          return (
-            <div>
-                <div onClick={this.discoverButtonHandler}>Current Favorites</div>
-                { this.state.showDiscoverView ? ( 
-                    <NewMovieList
-                    numberOfResults={7} 
-                    newMovieWindowHandler={this.props.newMovieWindowHandler}
-                    searchResults={this.state.discoverResults} />
-                ) : ( 
-                    <SearchBar
-                    numberOfResults={5}
-                    inputHandler={this.inputHandler}
-                    searchResults={this.state.searchResults}
-                    newMovieWindowHandler={this.props.newMovieWindowHandler} /> )} 
+            <div className='possiblility_window'>
+                <div className='button search_topmovie_button' onClick={this.discoverButtonHandler}>{ this.state.showDiscoverView ? `Back To Search` : `View Top Movies` }</div>
+                    <div className='search_container'>
+                    
+                    { this.state.showDiscoverView ? ( 
+                        <NewMovieList
+                        numberOfResults={7} 
+                        newMovieWindowHandler={this.props.newMovieWindowHandler}
+                        searchResults={this.state.discoverResults} />
+                    ) : ( 
+                        <SearchBar
+                        numberOfResults={5}
+                        inputHandler={this.inputHandler}
+                        searchResults={this.state.searchResults}
+                        newMovieWindowHandler={this.props.newMovieWindowHandler} /> )}
+                </div>
             </div>
         )
     }

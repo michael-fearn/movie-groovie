@@ -1,5 +1,7 @@
 import React from 'react';
-import Axios from 'axios'
+import Axios from 'axios';
+
+let baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 export default function NewMovieList (props) {
     function selectSearch(id) {
@@ -11,8 +13,11 @@ export default function NewMovieList (props) {
         return (
             <div 
             key={el.id}
+            className='button movie_list_element flexbox_add'
             onClick={() => selectSearch(el.id)}>
-                {el.title}
+                
+                <div><img className='list_element_img_lrg' src={`${baseImgUrl}${el.poster_path}`} alt=' '/></div>    
+               <div className='movielist_title_large'>{el.title}</div> 
             </div>
         )
         })

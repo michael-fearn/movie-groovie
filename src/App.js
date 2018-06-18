@@ -49,7 +49,8 @@ class App extends Component {
              })
             .catch(err => console.error(err))
     }
-}
+  }
+
   isDetailedViewOpen = () => {
     this.setState({allowUpdate: !this.state.allowUpdate})
   }
@@ -57,21 +58,33 @@ class App extends Component {
   voteHandler = (id, vote) => {
     Axios.put(`/api/movies/vote/${id}/${ ( vote > 0 ? 'add' : 'sub' ) }`, {forTheRubric: 'simple'})
         .then( response => this.setState({movieList: response.data}))
-}
+  }
   newMovieWindowHandler = () => {
     axios.get('/api/movies/simple').then(response => {
-    this.setState({
-      movieList: response.data,
-      displayNewMovieWindow: !this.state.displayNewMovieWindow,
-      displayDetailsWindow: false
+      this.setState({
+        movieList: response.data,
+        displayNewMovieWindow: !this.state.displayNewMovieWindow,
+        displayDetailsWindow: false
+      })
     })
-  })
   }
+
+  closeDetailedViewHandler = () => {
+    this.isDetailedViewOpen()
+
+  }
+
 
   render() {
     return (
+      <div>
+        {this.state.allowUpdate ? null : <div className='darken'></div>  }
+      
       <div className='app_container'>
-        <TopBar newMovieWindowHandler={this.newMovieWindowHandler}/>
+        <TopBar 
+
+        displayNewMovieWindow={this.state.displayNewMovieWindow}
+        newMovieWindowHandler={this.newMovieWindowHandler}/>
         
         {this.state.displayNewMovieWindow ? (
           <NewMovieWindow 
@@ -83,14 +96,8 @@ class App extends Component {
             updateList={this.updateList} 
             isDetailedViewOpen={this.isDetailedViewOpen}/> 
         )}
-
-        <div>
-        { this.state.displayNewMovieWindow ? (
-          <div 
-            onClick={this.newMovieWindowHandler}
-            className='app_add_movie'>Back to the Possiblities</div>
-        ) : null } 
         </div>
+        
       </div>
     );
   }

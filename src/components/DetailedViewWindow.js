@@ -5,20 +5,47 @@ let baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 
 export default function DetailedViewWindow(props) {
+
     let { id, title, tagline, overview, voteCount, poster_path, background_path, vote_average } = props.detailedMovieList;
-    console.log(id)
+
+    let deleteHandler = () => {
+        axios.delete(`/api/movies/delete/${id}`, {forTheRubric: "simple"}).then(response => props.updateList(response.data))
+        props.closeDetailedWindowHandler()
+    }
+    
     return (
-        <div className='detailed_window'>
-            <div className='detailsbar'>
-            <div className='subheading_title'>Details</div>
-            <div onClick={() => {
-                axios.delete(`/api/movies/delete/${id}`, {forTheRubric: "simple"}).then(response => props.updateList(response.data))
-                props.closeDetailedWindowHandler()}}>remove</div>
-            <div onClick={() => props.closeDetailedWindowHandler()}>Close</div>
+        <div className='details_container'>
+            <div className='details_window'>
+                
+                <div className='details_bar'>
+                    
+                    <div className='details_title'>{title}</div>  
+                    
+                    <div 
+                    onClick={deleteHandler}
+                    className='button movieVoteList_detailButton'>Remove</div>
+                    
+                    <div 
+                    onClick={props.closeDetailedWindowHandler}
+                    className=' button movieVoteList_detailButton'>Close</div>
+                
+                </div>
+{/*                 
+                { [id, title, tagline, overview, voteCount, poster_path, background_path, vote_average] } */}
+                
+                <div className='details_window_content'>
+                    <img className='details_poster' src={`${baseImgUrl}${poster_path}`} alt=""/>
+                    <div classname='details_data_container'>
+                        <div className='details_content'><h3>{title}</h3></div>
+                        <div className='details_content'><h4>{tagline}</h4></div>
+                        <div className='details_content'><p>{overview}</p></div>
+                    </div>
+            
+                </div>
             </div>
-                <img src={`${baseImgUrl}${poster_path}`} alt=""/>
-        { [id, title, tagline, overview, voteCount, poster_path, background_path, vote_average] }
+        }
         </div>
+            
     ) 
     
 }

@@ -1,4 +1,7 @@
 .movie_list {
-    display: inline-block;
-    
+    display: inline-block;    
+}
+
+.possiblility_window {
+    padding: 15px;
 }

@@ -42,16 +42,8 @@ class MoviePossibilityWindow extends Component {
         setTimeout(this.props.updateList, 3000)
         
         return (
-            <div>
-                The Possiblities
-                <MovieList
-                    className='movie_list' 
-                    voteHandler={this.props.voteHandler} 
-                    allowDetailButton={this.state.displayDetailedViewWindow} 
-                    detailedButtonWindowHandler={ this.detailedButtonWindowHandler } 
-                    movieList={ this.props.movieList } 
-                     />
-                    
+            <div className='possiblility_window'>
+                <h3>The Possiblities</h3>
                 {this.state.displayDetailedViewWindow ? (
                     <DetailedViewWindow
                         updateList={this.props.updateList}  
@@ -60,6 +52,14 @@ class MoviePossibilityWindow extends Component {
                 ) : (
                     null
                 )}
+
+                <MovieList
+                    className='movie_list' 
+                    voteHandler={this.props.voteHandler} 
+                    allowDetailButton={this.state.displayDetailedViewWindow} 
+                    detailedButtonWindowHandler={ this.detailedButtonWindowHandler } 
+                    movieList={ this.props.movieList } 
+                     />
             </div>
         );
     }

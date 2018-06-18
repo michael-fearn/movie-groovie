@@ -1,9 +1,70 @@
 .movie_list_element {
-    margin:  10px;
-    background: tan;
-    border: 2px solid Gray;
+    margin:  15px;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 10px 10px 5px;
+    
     
 }
+
+.listspacing {
+    height: 20px;
+    align-self: center;
+    
+  
+}
 .voteholder {
-    display: inline-block;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.movieVoteList_detailButton {
+    padding: 5px;
+    border: 1.5px solid rgb(148, 148, 148);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.list_element_img {  
+    height: 60px;
+}
+
+.list_element_img_lrg {  
+    height: 90px;
+}
+
+.movielist_title {
+    
+    width: 400px;
+}
+.votes {
+   font-size: 30px;
+   height: 16px;
+   
+}
+.voteCount {
+    font-size: 20px;
+    height: 10px;
+}
+
+.flexbox_add {
+    font-size: 40px;
+    margin: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.movielist_title_large {
+    align-self: center;
+    margin-right: 10px;
 }

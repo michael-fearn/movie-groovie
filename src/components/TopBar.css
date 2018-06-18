@@ -5,13 +5,20 @@
     font-size: 20px;
     box-shadow: 0px 3px 3px rgb(148, 148, 148);
 }
+
+.title_text {
+    margin-top: 15px;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
 .title_bar_flex {
     display: flex;
     justify-content: space-between;
 }
 
 .title_bar_add_button {
-    
     padding: 10px;
-    border: 1px solid rgb(148, 148, 148)
+    border: 1.5px solid rgb(148, 148, 148);
+    border-radius: 5px;
 }

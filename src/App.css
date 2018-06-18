@@ -1,6 +1,6 @@
 .app_container {
   margin: auto;
-  width: 700px;
+  width: 800px;
   background-color: white;
 }
 
@@ -14,10 +14,17 @@
   to { transform: rotate(360deg); }
 }
 
-.subheading_title {
-  font-family: sans-serif;
-  color: red;
-}
 body {
   background-color: #E3E2DD;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+.darken {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  opacity: .5;
 }

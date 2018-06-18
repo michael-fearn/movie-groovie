@@ -8,11 +8,12 @@ let movieList = [];
 let simpleMovieData = (obj) => {
     return obj.map(element => {
         
-        let {id,title,vote_average,voteCount} = element;
+        let {id,title,vote_average,voteCount,poster_path} = element;
         
         return {
             id,
             title,
+            poster_path,
             vote_average,
             voteCount
         }
