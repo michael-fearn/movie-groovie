@@ -17,6 +17,9 @@ class App extends Component {
     }
     
   }
+  backgroundHandler = () => {
+    
+  }
   updateList= () => {
     
     if(this.state.allowUpdate) {

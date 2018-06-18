@@ -30,8 +30,7 @@ export default function DetailedViewWindow(props) {
                     className=' button movieVoteList_detailButton'>Close</div>
                 
                 </div>
-{/*                 
-                { [id, title, tagline, overview, voteCount, poster_path, background_path, vote_average] } */}
+
                 
                 <div className='details_window_content'>
                     <img className='details_poster' src={`${baseImgUrl}${poster_path}`} alt=""/>
@@ -43,7 +42,7 @@ export default function DetailedViewWindow(props) {
             
                 </div>
             </div>
-        }
+        
         </div>
             
     ) 
