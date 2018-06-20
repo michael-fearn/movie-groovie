@@ -1,10 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ep = require("./endpoints");
+const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/../build"));
+app.use(express.static(__dirname + "./build"));
 
 app.post("/api/movies/add/:TMDBID/:type", ep.addMovie);
 app.get("/api/movies/:type", ep.getCurrentList);
