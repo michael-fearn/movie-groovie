@@ -6,7 +6,7 @@ let baseImgUrl = 'https://image.tmdb.org/t/p/w500';
 
 export default function DetailedViewWindow(props) {
 
-    let { id, title, tagline, overview, voteCount, poster_path, background_path, vote_average } = props.detailedMovieList;
+    let { id, title, tagline, overview, poster_path } = props.detailedMovieList;
 
     let deleteHandler = () => {
         axios.delete(`/api/movies/delete/${id}`, {forTheRubric: "simple"}).then(response => props.updateList(response.data))
