@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "./build"));
+app.use(express.static(__dirname + "/../build"));
 
 app.post("/api/movies/add/:TMDBID/:type", ep.addMovie);
 app.get("/api/movies/:type", ep.getCurrentList);
@@ -15,6 +15,6 @@ app.put("/api/movies/vote/:id/:vote", ep.voteHandler);
 app.delete("/api/movies/delete/:id", ep.removeMovie);
 // app.get('/api/quote',ep.quote)
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3005;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
