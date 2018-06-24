@@ -15,6 +15,6 @@ app.put("/api/movies/vote/:id/:vote", ep.voteHandler);
 app.delete("/api/movies/delete/:id", ep.removeMovie);
 // app.get('/api/quote',ep.quote)
 
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 80;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
